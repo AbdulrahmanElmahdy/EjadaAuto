@@ -1,10 +1,11 @@
 package EjadaHooks;
 
+import EjadaUIUtils.BrowserManager;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
-import org.junit.After;
-import org.junit.Before;
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -13,9 +14,12 @@ import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
+import static EjadaUIUtils.BrowserManager.*;
+
 public class EjadaHook {
 
-    public static WebDriver driver;
+    BrowserManager browserManager = new BrowserManager();
+//    public static WebDriver driver;
     public static ExtentTest test;
     public static ExtentReports extent;
     public static ExtentSparkReporter spark;
@@ -44,10 +48,13 @@ public class EjadaHook {
     }
 
     @Before
-    public void ejadaBeforeScenario() {
-        ChromeOptions chromeOptions = new ChromeOptions();
+    public void ejadaBeforeScenario() throws InterruptedException {
+        /*ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--incognito");
         driver = new ChromeDriver(chromeOptions);
+        driver.get("https://www.saucedemo.com/");
+        driver.manage().window().maximize();*/
+        browserManager.startBrowser();
         driver.get("https://www.saucedemo.com/");
         driver.manage().window().maximize();
     }
@@ -55,8 +62,6 @@ public class EjadaHook {
     @After
     public void ejadaAfterScenario() {
         extent.flush();
-        if (driver != null) {
-            driver.quit();
-        }
+        browserManager.quiteBrowser();
     }
 }

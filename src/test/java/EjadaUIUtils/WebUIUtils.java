@@ -9,6 +9,7 @@ import java.util.List;
 
 import static EjadaHooks.EjadaHook.*;
 import static EjadaLocators.EjadaLocators.*;
+import static EjadaUIUtils.BrowserManager.*;
 
 public class WebUIUtils {
 

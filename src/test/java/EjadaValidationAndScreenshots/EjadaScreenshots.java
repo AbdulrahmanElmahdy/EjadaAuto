@@ -10,6 +10,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import static EjadaHooks.EjadaHook.*;
+import static EjadaUIUtils.BrowserManager.*;
 
 public class EjadaScreenshots {
 

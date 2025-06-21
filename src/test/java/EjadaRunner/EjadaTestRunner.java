@@ -1,12 +1,9 @@
 package EjadaRunner;
 
-import com.vimalselvam.cucumber.listener.Reporter;
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import org.junit.runner.RunWith;
-
-import java.io.File;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
@@ -22,9 +19,5 @@ import java.io.File;
         monochrome = true
 )
 
-
 public class EjadaTestRunner extends AbstractTestNGCucumberTests {
-    public static void writeExtentReport() {
-        Reporter.loadXMLConfig(new File("config/report.xml"));
-    }
 }

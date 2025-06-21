@@ -8,8 +8,11 @@ import org.testng.asserts.SoftAssert;
 import java.time.Duration;
 
 import static EjadaHooks.EjadaHook.*;
+import static EjadaUIUtils.BrowserManager.*;
 
 public class EjadaValidation {
+
+    public static String invalidErrorMessage = "Username and password do not match";
 
     public static boolean validation (By locator, String message){
         WebDriverWait wait = new WebDriverWait( driver, Duration.ofSeconds(10));
