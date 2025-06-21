@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite" parallel="tests">
+    <test verbose="2" name="D:/Ejada/EjadaAutomation"><classes/></test>
+    <parameter name="browser" value="HtmlRunner"/>
+    <test thread-count="5" name="FirefoxTest">
+        <parameter name="browser" value="firefox" />
+        <classes>
+            <class name="EjadaStepDefinition.UserLogin" />
+        </classes>
+    </test>
+    <test thread-count="5" name="ChromeTest">
+        <parameter name="browser" value= "chrome" />
+        <classes>
+            <class name="EjadaStepDefinition.UserLogin" />
+        </classes>
+    </test>
+    <test name="SauceDemo Tests">
+        <classes>
+            <class name="EjadaRunner.EjadaTestRunner"/>
+        </classes>
+    </test>
+</suite>
